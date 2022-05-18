@@ -4,11 +4,12 @@ import s from './UncontrolledOnOff.module.css'
 type PropsType = {
  //   value: boolean
     onChange: (on:boolean) => void
+    defaultOn?: boolean
 }
 
 const UncontrolledOnOff = (props: PropsType) => {
 
-    let [on, setOn] = useState(false)
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
      // const onStyle = s.white + ' ' + (props.value ? s.on : '')
      // const offStyle = s.white + ' ' + (props.value ? '' : s.off)

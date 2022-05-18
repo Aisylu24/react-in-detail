@@ -1,12 +1,14 @@
 import React, {useState} from "react";
+import {RatingValueType} from "../Rating/Rating";
 
 type RatingProps={
-    value: 0 | 1 | 2 | 3 | 4 | 5
+    defaultValue?: RatingValueType
+    onClick: (value: RatingValueType) => void
 }
 
 export function UncontrolledRating(props:RatingProps) {
 
-    let [value, setValue] = useState(0)
+    let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
     const setValueHandler = (value: number) => {
         setValue(value)
@@ -14,11 +16,11 @@ export function UncontrolledRating(props:RatingProps) {
 
     return (
         <div>
-            <Star selected={value > 0} callBack={()=>setValueHandler(1)}/>
-            <Star selected={value > 1} callBack={()=>setValueHandler(2)}/>
-            <Star selected={value > 2} callBack={()=>setValueHandler(3)}/>
-            <Star selected={value > 3} callBack={()=>setValueHandler(4)}/>
-            <Star selected={value > 4} callBack={()=>setValueHandler(5)}/>
+            <Star selected={value > 0} callBack={()=>{setValueHandler(1) ; props.onClick(1);}}/>
+            <Star selected={value > 1} callBack={()=>{setValueHandler(2) ; props.onClick(2);}}/>
+            <Star selected={value > 2} callBack={()=>{setValueHandler(3) ; props.onClick(3);}}/>
+            <Star selected={value > 3} callBack={()=>{setValueHandler(4) ; props.onClick(4);}}/>
+            <Star selected={value > 4} callBack={()=>{setValueHandler(5) ; props.onClick(5);}}/>
 
             {/*<Star selected={value > 4} callBack={()=>setValue(5)}/>*/}
 

@@ -38,7 +38,7 @@ function App() {
 
             <OnOff onSwitch={onSwitch} setOnSwitch={setOnSwitch}/>
 
-            <UncontrolledRating/>
+            <UncontrolledRating value={1}/>
 
             <UncontrolledAccordion title={"two"}/>
 
@@ -48,7 +48,7 @@ function App() {
             <Footer titleFooter={'NEW FOOTER'}/>
 
 
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff value={false}/>
 
 
         </div>
