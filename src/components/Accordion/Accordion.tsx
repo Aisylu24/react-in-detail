@@ -1,23 +1,26 @@
 import React from "react";
 
 
+
+type ItemType ={
+    title: string
+    value:any
+}
 type AccPropsType={
     title: string
     collapsed: boolean
     setAccordion: () => void
+    items: Array<ItemType>
+    onClick: (value:any) => void
 }
 
 export function Accordion(props:AccPropsType) {
         return <>
             <AccTitle name={props.title}
                       onChange={props.setAccordion}/>
-                {!props.collapsed && <AccBody/>}
+                {!props.collapsed && <AccBody  items={props.items} onClick={props.onClick}/>}
             </>
     }
-
-
-
-
 
 type AccTitleType = {
     name:string
@@ -28,11 +31,17 @@ function AccTitle(props: AccTitleType){
     console.log("AccT")
     return <h3 onClick={(e)=>props.onChange()}>{props.name}</h3>
     }
-function AccBody(){
+
+
+type AccBodyPropsType = {
+    items: Array<ItemType>
+    onClick: (value:any) => void
+}
+
+function AccBody(props: AccBodyPropsType){
     console.log("AccB")
     return <ul>
-            <li>hard</li>
-            <li>work</li>
+        {props.items.map((el,i)=> <li onClick={()=>props.onClick(el.value)} key={i}>{el.title}</li>)}
         </ul>
     }
 
