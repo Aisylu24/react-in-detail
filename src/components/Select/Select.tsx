@@ -20,6 +20,7 @@ export function Select(props: PropsType) {
         setActive(!active)
     }
 
+
     const selectedItem = props.items.find(item => item.value)
 
     return (
@@ -30,16 +31,15 @@ export function Select(props: PropsType) {
                 <option value="">NY</option>
             </select>
 
-            <div className={s.select  + ' ' + (active? s.active : "")}>
+            <div className={s.select}>
                 <h3 onClick={toggleItems}>{selectedItem && selectedItem.title}</h3>
+                {active &&
                     <div className={s.items}>
                     {props.items.map(item => <div key={item.value}>{item.title}</div>)}
                 </div>
-
-
+                }
             </div>
         </>
     )
 }
-
 

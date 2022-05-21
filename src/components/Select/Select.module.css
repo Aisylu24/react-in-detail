@@ -3,15 +3,11 @@ border: 1px solid black;
 }
 
 .items {
-    display:none;
     position: absolute;
     border: 1px solid pink;
     padding: 5px;
 }
 
-.select.active .items {
-    display: block;
-}
 
 
 
