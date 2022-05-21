@@ -10,13 +10,11 @@ export default {
 
 let callback = action('clicked')
 
-
 export const SelectMode = () => {
     const [value, setValue] = useState(undefined)
 
     return <Select  value={value}
-                   onChange={callback}
-                    setValue={setValue}
+                   onChange={setValue}
                    items={[{title: 'select city'},
                        {title: "LA", ItemValue: 1},
                        {title: "NY", ItemValue: 2},
