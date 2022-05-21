@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+import s from "./Select.module.css"
 
-type ItemType ={
+type ItemType = {
     title: string
-    ItemValue?:any
+    value?: any
 }
 
 type PropsType = {
@@ -13,20 +14,32 @@ type PropsType = {
 
 export function Select(props: PropsType) {
 
-    const[open, setOpen] = useState<boolean>(false)
+    const[active, setActive] = useState<boolean>(false)
 
- const onClickHandler = (elTitle:string) => {
-     props.onChange(elTitle)
-     setOpen(!open)
- }
+    const toggleItems = ()=> {
+        setActive(!active)
+    }
+
+    const selectedItem = props.items.find(item => item.value)
+
     return (
-        <div>
-            <div key={props.value} onClick={()=>setOpen(!open)}>{props.value}</div>
-            {!open && props.items.map(el=>
-                <div key={el.ItemValue} onClick={()=>onClickHandler(el.title)}>
-                    {el.title}
-                </div>)}
-        </div>
+        <>
+            <select>
+                <option value="">LA</option>
+                <option value="">SF</option>
+                <option value="">NY</option>
+            </select>
+
+            <div className={s.select  + ' ' + (active? s.active : "")}>
+                <h3 onClick={toggleItems}>{selectedItem && selectedItem.title}</h3>
+                    <div className={s.items}>
+                    {props.items.map(item => <div key={item.value}>{item.title}</div>)}
+                </div>
+
+
+            </div>
+        </>
     )
 }
+
 

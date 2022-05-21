@@ -10,6 +10,26 @@ export default {
 
 let callback = action('clicked')
 
+
+
+export const WithValue = () => {
+    return <Select  value={'2'}
+                    onChange={callback}
+                    items={[
+                        {title: "LA", value: 1},
+                        {title: "NY", value: 2},
+                        {title: "SF", value: 3}]}/> }
+
+
+export const WithoutExample = () => {
+    return <Select onChange={callback}
+                    items={[
+                        {title: "LA", value: 1},
+                        {title: "NY", value: 2},
+                        {title: "SF", value: 3}]}/> }
+
+
+
 export const SelectMode = () => {
     const [value, setValue] = useState(undefined)
 
