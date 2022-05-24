@@ -21,7 +21,7 @@ export function Select(props: PropsType) {
         setActive(!active)
     }
 
-    let selectedItem = props.items.find(item => item.value === props.value)
+    const selectedItem = props.items.find(item => item.value === props.value)
     const hoveredItem = props.items.find(item => item.value === hoveredItemValue)
 
     useEffect(() => {
