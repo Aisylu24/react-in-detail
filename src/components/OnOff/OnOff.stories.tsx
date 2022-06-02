@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { action } from '@storybook/addon-actions'
 import OnOff from './OnOff'
-import exp from "constants";
 
 export default {
     title: 'OnOff',
@@ -13,8 +12,12 @@ export default {
 export const OnMode = () => <OnOff onSwitch={true} setOnSwitch={action('clicked')}/>
 export const OffMode = () => <OnOff onSwitch={false} setOnSwitch={action('clicked')}/>
 
+
+
+const OnOffMemo = React.memo(OnOff)
+
 export const ModeChanging = () => {
     const[value, setValue] = useState<boolean>(true)
 
-return <OnOff onSwitch={value} setOnSwitch={setValue}/>
+return <OnOffMemo onSwitch={value} setOnSwitch={setValue}/>
 }

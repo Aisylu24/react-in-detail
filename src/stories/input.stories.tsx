@@ -1,17 +1,9 @@
 import React, {useRef, useState} from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Button } from './Button';
-import OnOff from "../components/OnOff/OnOff";
-import {action} from "@storybook/addon-actions";
-import UncontrolledOnOff from "../components/UncontrolledOnOff/UncontrolledOnOff2";
 
 export default {
   title: 'input',
   //component: input,
 };
-
-
 
 export const UncontrolledInputTrackValue = () => {
 
@@ -27,7 +19,6 @@ export const UncontrolledInputTrackValue = () => {
 
 }
 
-
 export const UncontrolledInputGetValue = () => {
   let [value, setValue] = useState('')
   let inputRef = useRef<HTMLInputElement>(null)
@@ -41,7 +32,6 @@ export const UncontrolledInputGetValue = () => {
       </>
   )
 }
-
 
 export const ControlledInput = () => {
   const[parentValue, setValue] = useState('')
