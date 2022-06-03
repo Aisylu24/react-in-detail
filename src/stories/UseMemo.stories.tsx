@@ -103,13 +103,16 @@ export const LikeUseCallback = () => {
         return books.filter(b => b.indexOf('a') > -1)
     }, [books])
 
-    const addBook = () => {
-        let copy = [...books, 'Html' + new Date().getTime()]
-        setBooks(copy)
-    }
+    // const addBook = () => {
+    //     let copy = [...books, 'Html' + new Date().getTime()]
+    //     setBooks(copy)
+    // }
 
     const memoizedAddBook = useMemo(()=> {
-        return addBook
+        return () => { // addBook
+                let copy = [...books, 'Html' + new Date().getTime()]
+                setBooks(copy)
+            }
     }, [books])
 
     return <>
