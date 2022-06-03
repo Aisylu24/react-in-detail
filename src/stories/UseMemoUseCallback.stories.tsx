@@ -99,15 +99,9 @@ export const LikeUseCallback = () => {
     const [counter, setCounter] = useState(0)
     const [books, setBooks] = useState(['React', 'Js', 'Css'])
 
-    const newArray = useMemo(() => {
-        return books.filter(b => b.indexOf('a') > -1)
-    }, [books])
-
     const memoizedAddBook = useCallback(()=> {
-
                 let copy = [...books, 'Html' + new Date().getTime()]
                 setBooks(copy)
-
     }, [books])
 
     return <>
