@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default {
     title: 'useMemo',
@@ -103,16 +103,11 @@ export const LikeUseCallback = () => {
         return books.filter(b => b.indexOf('a') > -1)
     }, [books])
 
-    // const addBook = () => {
-    //     let copy = [...books, 'Html' + new Date().getTime()]
-    //     setBooks(copy)
-    // }
+    const memoizedAddBook = useCallback(()=> {
 
-    const memoizedAddBook = useMemo(()=> {
-        return () => { // addBook
                 let copy = [...books, 'Html' + new Date().getTime()]
                 setBooks(copy)
-            }
+
     }, [books])
 
     return <>
