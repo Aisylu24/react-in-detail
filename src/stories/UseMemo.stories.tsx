@@ -80,3 +80,45 @@ export const HelpsTpReactMemo = () => {
         <Users users={newArray}/>
     </>
 }
+
+type BooksSecretParams = {
+    addBook: () => void };
+
+const BooksSecret = (props: BooksSecretParams) => {
+    return <div>
+        <button onClick={() => {
+          props.addBook()
+        }}>add book
+        </button>
+    </div>
+}
+
+const Books = React.memo(BooksSecret)
+
+export const LikeUseCallback = () => {
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(['React', 'Js', 'Css'])
+
+    const newArray = useMemo(() => {
+        return books.filter(b => b.indexOf('a') > -1)
+    }, [books])
+
+    const addBook = () => {
+        let copy = [...books, 'Html' + new Date().getTime()]
+        setBooks(copy)
+    }
+
+    const memoizedAddBook = useMemo(()=> {
+        return addBook
+    }, [books])
+
+    return <>
+        <button onClick={() => {
+            setCounter(counter + 1)
+        }}>+
+        </button>
+
+        {counter}
+        <Books addBook={memoizedAddBook}/>
+    </>
+}
