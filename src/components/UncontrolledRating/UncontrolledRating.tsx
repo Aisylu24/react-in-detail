@@ -10,7 +10,7 @@ export function UncontrolledRating(props:RatingProps) {
 
     let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
-    const setValueHandler = (value: number) => {
+    const setValueHandler = (value: RatingValueType) => {
         setValue(value)
     }
 
@@ -42,81 +42,3 @@ function Star(props:  StarPropsType) {
     </span>
     )
 }
-
-
-// type StarPropsType={
-//     selected:boolean
-// }
-//
-// function Star(props:  StarPropsType) {
-//     console.log("planet")
-//     if (props.selected === true) {
-//         return <span><b>star </b></span>
-//     } else {
-//         return <span>star </span>
-//
-//     }
-//
-// }
-
-//     if (props.value === 1) {
-//         return (
-//             <div>
-//                 <Star selected={true}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//             </div>)
-//     }
-//     if (props.value === 2) {
-//         return (
-//             <div>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//             </div>)
-//     }
-//     if (props.value === 3) {
-//         return (
-//             <div>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={false}/>
-//                 <Star selected={false}/>
-//             </div>)
-//     }
-//     if (props.value === 4) {
-//         return (
-//             <div>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={false}/>
-//             </div>)
-//     }
-//     if (props.value === 5) {
-//         return (
-//             <div>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//                 <Star selected={true}/>
-//             </div>)
-//     }
-//
-//     return (
-//         <div>
-//             <Star selected={false}/>
-//             <Star selected={false}/>
-//             <Star selected={false}/>
-//             <Star selected={false}/>
-//             <Star selected={false}/>
-//         </div>)
-// }
-
